@@ -7,7 +7,7 @@ class User(UserMixin, db.Model):
     nickname = db.Column(db.String(64), index=True, unique=True)
     email = db.Column(db.String(120), index=True, unique=True)
     # posts = db.relationship('Post', backref='author', lazy='dynamic')
-    social_id = db.Column(db.String(64), nullable=Flase, unique=True)
+    social_id = db.Column(db.String(64), nullable=False, unique=True)
 
 @lm.user_loader
 def load_user(id):
