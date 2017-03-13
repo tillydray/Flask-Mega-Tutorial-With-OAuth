@@ -20,7 +20,7 @@ class OAuthSignIn(object):
         return url_for('oath_callback', provider=self.provider_name, _external=True)
 
     @classmethod
-    def get_provier(self, provider_name):
+    def get_provider(self, provider_name):
         if self.providers is None:
             self.providers = {}
             for provider_class in self.__subclasses__():
