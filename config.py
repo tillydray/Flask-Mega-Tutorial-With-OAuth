@@ -4,7 +4,7 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 CSRF_ENABLED = True
 SECRET_KEY = 'you-will-never-guess'
 
-app.config['OAUTH_CREDENTIALS'] = {
+OAUTH_CREDENTIALS = {
     'facebook': {
         'id': '1837196166539923',
         'secret': 'b686b5a304e204587536042acc1fc566'
