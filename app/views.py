@@ -50,6 +50,13 @@ def login():
                            form=form,
                            providers=app.config['OPENID_PROVIDERS'])
 
+@app.route('/authorize/<provider>')
+def oauth_authorize(provider):
+    if not current_user.is_anonymous():
+        return redirect(url_for('index'))
+    oauth = OAuthSignIn.get_provider(provider)
+    return oauth.authorize()
+
 
 @oid.after_login
 def after_login(resp):
