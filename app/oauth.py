@@ -10,6 +10,12 @@ class OAuthSignIn(object):
         self.consumer_id = credentials['id']
         self.consumer_secret = credentials['secret']
 
+    def authorize(self):
+        pass
+
+    def callback(self):
+        pass
+
     def get_callback_url(self):
         return url_for('oath_callback', provider=self.provider_name, _external=True)
 
