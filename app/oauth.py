@@ -1,6 +1,7 @@
 from rauth import OAuth1Service, OAuth2Service
 from flask import current_app, url_for, request, redirect, session
 
+
 class OAuthSignIn(object):
     providers = None
 
@@ -17,7 +18,7 @@ class OAuthSignIn(object):
         pass
 
     def get_callback_url(self):
-        return url_for('oath_callback', provider=self.provider_name, _external=True)
+        return url_for('oauth_callback', provider=self.provider_name, _external=True)
 
     @classmethod
     def get_provider(self, provider_name):
@@ -30,7 +31,7 @@ class OAuthSignIn(object):
 
 class FacebookSignIn(OAuthSignIn):
     def __init__(self):
-        super(FacebookSingIn, self).__init__('facebook')
+        super(FacebookSignIn, self).__init__('facebook')
         self.service = OAuth2Service(
             name='facebook',
             client_id=self.consumer_id,
@@ -64,10 +65,11 @@ class FacebookSignIn(OAuthSignIn):
 
 class TwitterSignIn(OAuthSignIn):
     def __init__(self):
-        super(TwitterSignIn, self).__init__('twiiter')
+        super(TwitterSignIn, self).__init__('twitter')
         self.service = OAuth1Service(
             name='twitter',
             consumer_key=self.consumer_id,
+            consumer_secret=self.consumer_secret,
             request_token_url='https://api.twitter.com/oauth/request_token',
             authorize_url='https://api.twitter.com/oauth/authorize',
             access_token_url='https://api.twitter.com/oauth/access_token',
@@ -76,7 +78,7 @@ class TwitterSignIn(OAuthSignIn):
 
         def authorize(self):
             request_token = self.service.get_request_token(
-                params={'oauth_callbac': self.get_callback_url()}
+                params={'oauth_callback': self.get_callback_url()}
             )
             session['request_token'] = request_token
             return redirect(self.service.get_authorize_url(request_token[0]))
