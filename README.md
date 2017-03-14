@@ -1,17 +1,3 @@
-microblog
-=========
+This combines Miguel Grinberg's [Flask Mega Tutorial](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world) with his [OAuth Authentication with Flask](https://blog.miguelgrinberg.com/post/oauth-authentication-with-flask) tutorial.  I only go through chapter 5 of his Mega Tutorial because that's where you would need to add his OAuth stuff instead of OpenID.  There are comments in the code to hopefully explain all of the changes you need to make.  There aren't too terribly many.
 
-A decently featured microblogging web application written in Python and Flask that I'm developing in my Flask Mega-Tutorial series that begins [here](http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world).
-
-Installation
-------------
-
-The tutorial referenced above explains how to setup a virtual environment with all the required modules.
-
-The sqlite database must also be created before the application can run, and the `db_create.py` script takes care of that. See the [Database tutorial](http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-iv-database) for the details.
-
-Running
--------
-
-To run the application in the development web server just execute `run.py` with the Python interpreter from the flask virtual environment.
-
+If you have any questions, create an issue in this repo.  I found it difficult to find the help I need and I'd like to make this a helpful resource for people.
